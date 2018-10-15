@@ -63,4 +63,19 @@ unison cluster-example
 
 and follow the instructions
 
+# Script for cleaning up after running batch job
+
+```
+#!/bin/bash
+rm -f *~
+rm -f *#
+rm -f .*~
+rm -f .*#
+rm -f .#*
+rm -f _*
+##rm -f *.log
+rm -f *.aux
+rm -f *.sh.*
+rm -f *.Rout
+```
 
