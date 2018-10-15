@@ -44,6 +44,15 @@ root = /Users/jfiksel/Hopkins_Biostat/cluster-example
 root = ssh://transfer01.jhpce.jhu.edu//users/jfiksel/cluster-example
 servercmd=/users/jfiksel/bin/unison
 ignore = Path {bootstrap-results*}
+ignore = Name {.git}
+ignore = Path {.DS_Store}
+ignore = Path {.Rhistory}
+ignore = Name {*.sh.o*}
+ignore = Name {*.sh.po*}
+ignore = Name {*.Rout}
+ignore = Name {*.sh.e*}
+ignore = Name {*/.git*}
+ignore = Path {.Rproj*}
 ```
 
 then when you want to use Unison to update the files within the cluster-example directory, simply enter
