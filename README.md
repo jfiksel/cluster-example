@@ -46,4 +46,12 @@ servercmd=/users/jfiksel/bin/unison
 ignore = Path {bootstrap-results*}
 ```
 
+then when you want to use Unison to update the files within the cluster-example directory, simply enter
+
+```
+unison cluster-example
+```
+
+and follow the instructions
+
 
