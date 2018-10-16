@@ -1,4 +1,12 @@
-# How to install UNISON on cluster
+## JHPCE information
+* https://jhpce.jhu.edu/
+* Bithelp: bithelp@lists.johnshopkins.edu and bithelp channel on JHU Biostat Slack
+* Bitsupport: bitsupport@lists.johnshopkins.edu
+
+First contact bitsupport to be added to bithelp listserve. Bithelp is for most problems (errors while installing/running software for the most part), bitsupport for issues such as requests for temporary increase in memory limits
+
+
+## How to install UNISON on cluster
 
 ### Option 1: Install OCAML then install Unison through github
 
@@ -84,7 +92,7 @@ unison cluster-example
 
 and follow the instructions
 
-# Script for cleaning up after running batch job
+## Script for cleaning up after running batch job
 
 Save the following as `clean.sh` in your `~/bin` directory.
 
