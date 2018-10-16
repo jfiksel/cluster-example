@@ -1,3 +1,43 @@
+## To run shell script
+
+```
+qsub cluster-script.sh
+```
+
+## To check job memory (after job finishes running)
+
+```
+qacct -j <JOBID>
+```
+
+## To submit multi-core jobs
+
+Add the following to your `.sh` script:
+
+```
+#$ -pe local K
+```
+
+Where `K` is the number of cores per job. Note that if you have
+
+```
+#$ -l mem_free=nG
+#$ -l h_vmem=nG
+#$ -R y
+```
+
+Then the total amount of memory per job will be n*K
+
+## If outputting large files
+
+Add the following to your shell script
+
+```
+#$ -l h_fsize=NG
+```
+
+Where `N` is slightly larger than the largest file you will be outputting. Default is currently `10G` (I believe)
+
 ## JHPCE information
 * https://jhpce.jhu.edu/
 * Bithelp: bithelp@lists.johnshopkins.edu and bithelp channel on JHU Biostat Slack
