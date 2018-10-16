@@ -86,6 +86,8 @@ and follow the instructions
 
 # Script for cleaning up after running batch job
 
+Save the following as `clean.sh` in your `~/bin` directory.
+
 ```
 #!/bin/bash
 rm -f *~
@@ -100,3 +102,17 @@ rm -f *.sh.*
 rm -f *.Rout
 ```
 
+Make sure you can execute the file
+
+```
+cd ~/bin
+chmod u+x clean.sh
+```
+
+Enter the following in your `~/.bash_profile`
+
+```
+alias clean='clean.sh'
+```
+
+Then you can just enter the command `clean` from a directory you just ran a batch job in
