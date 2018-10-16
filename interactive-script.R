@@ -7,7 +7,7 @@ for(i in 1:B){
     bootstrap.means[i] <- mean(boot.samp)
 }
 hist(bootstrap.means)
-
 ggplot.df <- data.frame(index = 1:length(bootstrap.means), mean = bootstrap.means)
+library(ggplot2)
 ggplot(ggplot.df, aes(mean)) +
-  geom_histogram()
+  geom_density()
