@@ -1,5 +1,7 @@
 # How to install UNISON on cluster
 
+### Option 1: Install OCAML then install Unison through github
+
 ```
 mkdir -p ~/Downloads
 cd ~/Downloads
@@ -28,6 +30,25 @@ cd unison
 make UISTYLE=text
 cd ~/bin
 cp ~/Downloads/unison/src/unison .
+```
+
+### Option 2: Install and use linuxbrew
+
+From https://github.com/Linuxbrew/brew/wiki/CentOS6
+
+From log-in node request compute node with 20G of memory
+```
+qrsh -l mem_free=20G,h_vmem=20G
+```
+
+From compute node:
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+PATH=$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH
+HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_BUILD_FROM_SOURCE=1 brew install gcc --without-glibc
+HOMEBREW_NO_AUTO_UPDATE=1 brew install glibc
+brew install hello
+brew install unison
 ```
 
 # How to make unison profiles
