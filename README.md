@@ -48,70 +48,43 @@ First contact bitsupport to be added to bithelp listserve. Bithelp is for most p
 
 ## How to install UNISON on cluster
 
-### Option 1: Install OCAML then install Unison through github
-
-```
-mkdir -p ~/Downloads
-cd ~/Downloads
-### Replace below with appropriate version
-wget http://caml.inria.fr/pub/distrib/ocaml-4.07/ocaml-4.07.1.tar.gz
-tar -xvzf ocaml-4.07.1.tar.gz
-cd ocaml-4.07.1
-mkdir -p ~/src
-### Replace my name with yours
-./configure -prefix /users/jfiksel/src/ocaml
-make world > log.world 2>&1
-make bootstrap > log.bootstrap 2>&1  
-make opt > log.opt 2>&1
-make opt.opt
-umask 022     
-make install
-cd ~/bin
-ln -s ../src/ocaml/bin/ocaml ocaml
-ln -s ../src/ocaml/bin/ocamlc ocamlc
-ln -s ../src/ocaml/bin/ocamlopt ocamlopt
-ln -s ../src/ocaml/bin/ocamlrun ocamlrun
-## install unison
-cd ~/Downloads
-git clone https://github.com/bcpierce00/unison.git
-cd unison
-make UISTYLE=text
-cd ~/bin
-cp ~/Downloads/unison/src/unison .
-```
-
-### Option 2: Install and use linuxbrew
-
-From https://github.com/Linuxbrew/brew/wiki/CentOS6
-
-From log-in node request compute node with 20G of memory
-```
-qrsh -l mem_free=20G,h_vmem=20G
-```
-
-From compute node:
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-PATH=$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH
-HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_BUILD_FROM_SOURCE=1 brew install gcc --without-glibc
-HOMEBREW_NO_AUTO_UPDATE=1 brew install glibc
-brew install hello
-brew install unison
-```
 
 # How to make unison profiles
-Install UNISON on your local computer.  Make a text file on your LOCAL computer--here's an example
+Install UNISON on your local computer--make sure that you have the same version as the one currently installed on the cluster.
+To check the cluster version, we first need to make sure we have access to the cluster-wide installation of Unison. from a log-in node enter:
+
+```
+which unison
+```
+
+The output of this should be `/jhpce/shared/jhpce/core/JHPCE_tools/1.0/bin/unison`. Then enter
+
+```
+unison -version
+```
+
+The output should be `unison version <unison-version> (ocaml <ocaml-version>)`
+
+where `<unison-version>` and `<ocaml-version>` are actual version numbers. For example, at the time of writing this guide, my output is:
+
+`unison version 2.51.2 (ocaml 4.07.1)`
+
+Your local version of unison should match `<unison-version>`, but it does not have to match `<ocaml-version>`.
+
+
+Now make a unison profile for your project on your LOCAL computer--here's how you can initiate a blank `.prf` file. 
 
 ```
 touch ~/.unison/cluster-example.prf
 ```
+You will have to do this for each directory you want to sync via Unison. However, every file and sub-directory within a project directory will automatically be synked.
 
-Then add the following lines (this will change for when you make different profiles obviously)--also make sure you replace the working directories with the appropriate ones for your project
+Then add the following lines using the text editor of choice (this will change for when you make different profiles obviously)--also make sure you replace the working directories with the appropriate ones for your project
 
 ```
 root = /Users/jfiksel/Hopkins_Biostat/cluster-example
 root = ssh://transfer01.jhpce.jhu.edu//users/jfiksel/cluster-example
-servercmd=/users/jfiksel/bin/unison
+servercmd=/jhpce/shared/jhpce/core/JHPCE_tools/1.0/bin/unison
 ignore = Path {bootstrap-results*}
 ignore = Name {.git}
 ignore = Path {.DS_Store}
@@ -130,7 +103,7 @@ then when you want to use Unison to update the files within the cluster-example 
 unison cluster-example
 ```
 
-and follow the instructions
+and follow the instructions. Now every file and directory within your local `cluster-example` will be synked to the cluster version of `cluster-example`.
 
 ## Script for cleaning up after running batch job
 
