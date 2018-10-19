@@ -46,10 +46,7 @@ Where `N` is slightly larger than the largest file you will be outputting. Defau
 First contact bitsupport to be added to bithelp listserve. Bithelp is for most problems (errors while installing/running software for the most part), bitsupport for issues such as requests for temporary increase in memory limits
 
 
-## How to install UNISON on cluster
-
-
-# How to make unison profiles
+## How to use Unison for file transfer and syncing
 Install UNISON on your local computer--make sure that you have the same version as the one currently installed on the cluster.
 To check the cluster version, we first need to make sure we have access to the cluster-wide installation of Unison. from a log-in node enter:
 
