@@ -79,8 +79,8 @@ You will have to do this for each directory you want to sync via Unison. However
 Then add the following lines using the text editor of choice (this will change for when you make different profiles obviously)--also make sure you replace the working directories with the appropriate ones for your project
 
 ```
-root = /Users/jfiksel/Hopkins_Biostat/cluster-example
-root = ssh://transfer01.jhpce.jhu.edu//users/jfiksel/cluster-example
+root = local/path/to/cluster-example
+root = ssh://transfer01.jhpce.jhu.edu//cluster/path/to/cluster-example
 servercmd=/jhpce/shared/jhpce/core/JHPCE_tools/1.0/bin/unison
 ignore = Path {bootstrap-results*}
 ignore = Name {.git}
@@ -93,6 +93,9 @@ ignore = Name {*.sh.e*}
 ignore = Name {*/.git*}
 ignore = Path {.Rproj*}
 ```
+
+In the above, on my computer, I have `local/path/to/cluster-example` replaced with `/Users/jfiksel/Hopkins_Biostat/cluster-example` and `ssh://transfer01.jhpce.jhu.edu//cluster/path/to/cluster-example` replaced with `ssh://transfer01.jhpce.jhu.edu//users/jfiksel/cluster-example`
+
 
 then when you want to use Unison to update the files within the cluster-example directory, simply enter
 
