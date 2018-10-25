@@ -69,7 +69,7 @@ where `<unison-version>` and `<ocaml-version>` are actual version numbers. For e
 Your local version of unison should match `<unison-version>`, but it does not have to match `<ocaml-version>`.
 
 
-Now make a unison profile for your project on your LOCAL computer--here's how you can initiate a blank `.prf` file. 
+Now make a unison profile for your project on your LOCAL computer--here's how you can initiate a blank `.prf` file.
 
 ```
 touch ~/.unison/cluster-example.prf
@@ -80,7 +80,7 @@ Then add the following lines using the text editor of choice (this will change f
 
 ```
 root = local/path/to/cluster-example
-root = ssh://transfer01.jhpce.jhu.edu//cluster/path/to/cluster-example
+root = ssh://jhpce-transfer01.jhsph.edu//cluster/path/to/cluster-example
 servercmd=/jhpce/shared/jhpce/core/JHPCE_tools/1.0/bin/unison
 ignore = Path {bootstrap-results*}
 ignore = Name {.git}
@@ -94,7 +94,7 @@ ignore = Name {*/.git*}
 ignore = Path {.Rproj*}
 ```
 
-In the above, on my computer, I have `local/path/to/cluster-example` replaced with `/Users/jfiksel/Hopkins_Biostat/cluster-example` and `ssh://transfer01.jhpce.jhu.edu//cluster/path/to/cluster-example` replaced with `ssh://transfer01.jhpce.jhu.edu//users/jfiksel/cluster-example`
+In the above, on my computer, I have `local/path/to/cluster-example` replaced with `/Users/jfiksel/Hopkins_Biostat/cluster-example` and `ssh://jhpce-transfer01.jhsph.edu//cluster/path/to/cluster-example` replaced with `ssh://jhpce-transfer01.jhsph.edu//users/jfiksel/cluster-example`.  Please note that for small amounts of data (less than a couple of GB), you can use `jhpce01.jhsph.edu` (in the second root line).  However, for transferring large amounts of data, it will be much faster to use `jhpce-transfer01.jhsph.edu` (as I have above).  IMPORTANT NOTE: If you do use `jhpce-transfer01.jhsph.edu` you will need to email bitsupport and request to have your user ID added to the “ssh allow list” for jhpce-transfer01.
 
 
 then when you want to use Unison to update the files within the cluster-example directory, simply enter

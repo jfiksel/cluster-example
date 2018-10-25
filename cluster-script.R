@@ -3,6 +3,7 @@ library(getopt)
 ### I'm passing in multiple, args would be a vector
 args <- commandArgs(trailingOnly = TRUE)
 boot.index <- as.numeric(args[1])
+
 ## B is number of bootstrap repetitions
 B <- 100
 ## set initial seed for reproducibility 
