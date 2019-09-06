@@ -47,7 +47,9 @@ First contact bitsupport to be added to bithelp listserve. Bithelp is for most p
 
 
 ## How to use Unison for file transfer and syncing
-Install UNISON on your local computer--make sure that you have the same version as the one currently installed on the cluster.
+Install UNISON on your local computer using the directions [here](http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html#install). You will want to use the text-only interface version of Unison. For Mac users, I recommend following the instructions under the **Unix** subsection of **Building Unison from Scratch** in the installation instructions. 
+
+After you install UNISON, make sure that you have the same version as the one currently installed on the cluster.
 To check the cluster version, we first need to make sure we have access to the cluster-wide installation of Unison. from a log-in node enter:
 
 ```
