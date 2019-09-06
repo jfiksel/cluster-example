@@ -8,6 +8,7 @@ hist(results)
 dev.off()
 
 ## example with ggplot2 and ggsave
+### Make sure you have ggplot2 installed on your cluster R
 library(ggplot2)
 ggplot.df <- data.frame(index = 1:length(results), mean = results)
 ggplot.hist <-

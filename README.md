@@ -1,3 +1,10 @@
+## To load R in a computing node
+
+```
+module load conda_R
+R
+```
+
 ## To run shell script
 
 ```
@@ -123,6 +130,8 @@ rm -f _*
 rm -f *.aux
 rm -f *.sh.*
 rm -f *.Rout
+rm -f *.o[0-9]*
+rm -f *.e[0-9]*
 ```
 
 Make sure you can execute the file
