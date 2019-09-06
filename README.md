@@ -8,7 +8,7 @@ R
 ## To run shell script
 
 ```
-qsub cluster-script.sh
+qsub workflow.sh
 ```
 
 ## To check job memory (after job finishes running)
